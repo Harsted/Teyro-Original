@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teyro Original — Ropa urbana</title>
+<meta name="description" content="Teyro Original: ropa urbana hecha para la calle. Hoodies, camisetas y accesorios. Drops limitados, envíos a toda Colombia.">
+<link rel="icon" href="assets/logo-lobo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a href="#inicio" class="skip-link">Saltar al contenido</a>
+
+  <!-- ============================================
+       CINTA DE ANUNCIOS (motivo firma: cinta de peligro)
+       Marquee continuo, referencia visual a la cinta de
+       advertencia de obra/calle — encaja con la identidad
+       "hecha en la calle" de la marca.
+       ============================================ -->
+  <div class="hazard-bar" aria-label="Anuncios">
+    <div class="hazard-track">
+      <span>ENVÍO GRATIS DESDE $150.000</span>
+      <span>DROP 04 — YA DISPONIBLE</span>
+      <span>PAGO CONTRA ENTREGA EN TODA COLOMBIA</span>
+      <span>-30% EN HOODIES TEMPORADA PASADA</span>
+      <span>ENVÍO GRATIS DESDE $150.000</span>
+      <span>DROP 04 — YA DISPONIBLE</span>
+      <span>PAGO CONTRA ENTREGA EN TODA COLOMBIA</span>
+      <span>-30% EN HOODIES TEMPORADA PASADA</span>
+    </div>
+  </div>
+
+  <!-- Barra de progreso de lectura -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================
+       NAV
+       ============================================ -->
+  <header>
+    <nav>
+      <a href="#inicio" class="logo">
+        <img src="assets/logo-lobo.png" alt="Teyro Original">
+        TEYRO <span>ORIGINAL</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio" data-nav="inicio">Inicio</a></li>
+        <li class="dropdown" id="catDropdown">
+          <button class="dropdown-toggle" id="catDropdownToggle" aria-expanded="false">
+            Categorías <span class="caret">▾</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#catalogo" data-cat="hoodies">Hoodies</a></li>
+            <li><a href="#catalogo" data-cat="camisetas">Camisetas</a></li>
+            <li><a href="#catalogo" data-cat="accesorios">Accesorios</a></li>
+          </ul>
+        </li>
+        <li><a href="#ofertas" data-nav="ofertas">Ofertas</a></li>
+        <li><a href="#catalogo" data-nav="catalogo">Catálogo</a></li>
+        <li><a href="#galeria" data-nav="galeria">Galería</a></li>
+        <li><a href="#nosotros" data-nav="nosotros">Nosotros</a></li>
+        <li><a href="#faq" data-nav="faq">Preguntas</a></li>
+        <li><a href="#contacto" data-nav="contacto">Contacto</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="favToggle" aria-label="Ver favoritos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path>
+          </svg>
+          <span class="badge" id="favBadge" hidden>0</span>
+        </button>
+        <button class="search-toggle" id="searchToggle" aria-label="Buscar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <div class="search-bar" id="searchBar">
+        <div class="search-bar-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="searchInput" placeholder="Buscar productos... (ej: hoodie, camiseta, gorra)">
+          <span class="search-count" id="searchCount"></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Menú móvil a pantalla completa -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#ofertas">Ofertas</a></li>
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#faq">Preguntas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="mobile-menu-cats">
+      <span class="eyebrow">Ir directo a</span>
+      <div class="mobile-cat-pills">
+        <a href="#catalogo" data-cat="hoodies">Hoodies</a>
+        <a href="#catalogo" data-cat="camisetas">Camisetas</a>
+        <a href="#catalogo" data-cat="accesorios">Accesorios</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navegación lateral por puntos (desktop) -->
+  <nav class="dot-nav" id="dotNav" aria-label="Navegación rápida por secciones">
+    <a href="#inicio" data-target="inicio"><span class="dot"></span><em>Inicio</em></a>
+    <a href="#ofertas" data-target="ofertas"><span class="dot"></span><em>Ofertas</em></a>
+    <a href="#catalogo" data-target="catalogo"><span class="dot"></span><em>Catálogo</em></a>
+    <a href="#galeria" data-target="galeria"><span class="dot"></span><em>Galería</em></a>
+    <a href="#nosotros" data-target="nosotros"><span class="dot"></span><em>Nosotros</em></a>
+    <a href="#faq" data-target="faq"><span class="dot"></span><em>Preguntas</em></a>
+    <a href="#contacto" data-target="contacto"><span class="dot"></span><em>Contacto</em></a>
+  </nav>
+
+  <!-- ============================================
+       HERO
+       ============================================ -->
+  <section class="hero" id="inicio">
+    <div class="wrap hero-content">
+      <div class="eyebrow">Drop 04 — Nueva colección</div>
+      <h1>Viste tu<br>propio estilo.</h1>
+      <p>Ropa urbana pensada para la calle: cortes rectos, materiales resistentes y una identidad que no se calla.</p>
+      <div class="hero-cta">
+        <a href="#catalogo" class="btn filled">Ver catálogo</a>
+        <a href="#nosotros" class="btn">Conocer la marca</a>
+      </div>
+
+      <div class="countdown" id="countdown" aria-label="Tiempo para el próximo drop">
+        <span class="countdown-label">Próximo drop en</span>
+        <div class="countdown-digits">
+          <div><span id="cdDays">00</span><small>días</small></div>
+          <div><span id="cdHours">00</span><small>hrs</small></div>
+          <div><span id="cdMin">00</span><small>min</small></div>
+          <div><span id="cdSec">00</span><small>seg</small></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-mark">TEYRO ORIGINAL — EST. CALLE</div>
+    <a href="#ofertas" class="scroll-cue" aria-label="Bajar a la siguiente sección">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ============================================
+       OFERTAS
+       ============================================ -->
+  <section id="ofertas">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Por tiempo limitado</div>
+          <h2>Ofertas</h2>
+        </div>
+        <p>Descuentos activos de la temporada. Se aplican automáticamente en caja.</p>
+      </div>
+      <div class="ofertas-grid reveal">
+        <div class="oferta-card">
+          <span class="tag"><img src="assets/logo-lobo-negro.png" alt="">OF-1</span>
+          <div class="pct">30%</div>
+          <h3>Hoodies temporada pasada</h3>
+          <p>Aplica sobre modelos seleccionados de la colección anterior.</p>
+          <span class="code">CODIGO: TEYRO30</span>
+        </div>
+        <div class="oferta-card">
+          <span class="tag"><img src="assets/logo-lobo-negro.png" alt="">OF-2</span>
+          <div class="pct">2x1</div>
+          <h3>Camisetas básicas</h3>
+          <p>Lleva dos camisetas de la línea básica y paga solo una.</p>
+          <span class="code">CODIGO: TEYRO2X1</span>
+        </div>
+        <div class="oferta-card">
+          <span class="tag"><img src="assets/logo-lobo-negro.png" alt="">OF-3</span>
+          <div class="pct">15%</div>
+          <h3>Primera compra</h3>
+          <p>Descuento para clientes nuevos en cualquier categoría.</p>
+          <span class="code">CODIGO: BIENVENIDA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CATÁLOGO
+       ============================================ -->
+  <section class="catalogo" id="catalogo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Productos</div>
+          <h2>Catálogo</h2>
+        </div>
+        <p>Nuestra colección actual, lista para pedir.</p>
+      </div>
+
+      <div class="catalogo-controls reveal">
+        <div class="filtros">
+          <button class="filtro-btn active" data-filter="todos">Todos</button>
+          <button class="filtro-btn" data-filter="hoodies">Hoodies</button>
+          <button class="filtro-btn" data-filter="camisetas">Camisetas</button>
+          <button class="filtro-btn" data-filter="accesorios">Accesorios</button>
+          <button class="filtro-btn filtro-fav" data-filter="favoritos">♥ Favoritos</button>
+        </div>
+        <label class="sort-select">
+          <span>Ordenar por</span>
+          <select id="sortSelect">
+            <option value="default">Relevancia</option>
+            <option value="price-asc">Precio: menor a mayor</option>
+            <option value="price-desc">Precio: mayor a menor</option>
+            <option value="name-asc">Nombre: A-Z</option>
+          </select>
+        </label>
+      </div>
+
+      <p class="empty-state" id="emptyState" hidden>No hay productos que coincidan. Prueba con otro filtro o guarda algunos favoritos con el ícono de corazón.</p>
+
+      <div class="prod-grid reveal" id="prodGrid">
+        <!-- Producto 1 — foto real -->
+        <div class="prod-card" data-cat="camisetas" data-price="63900" data-name="Camiseta Mala Fama">
+          <div class="prod-img">
+            <img src="assets/prod-mala-fama.png" alt="Camiseta negra Mala Fama">
+            <span class="tag"><img src="assets/logo-lobo-negro.png" alt="">01</span>
+            <button class="fav-btn" data-id="p1" aria-label="Guardar Camiseta Mala Fama en favoritos" aria-pressed="false">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10.2-9.1C.2 8.7 1.4 5 5 4.1c2.1-.5 4.1.4 5.2 2.1L12 8.5l1.8-2.3c1.1-1.7 3.1-2.6 5.2-2.1 3.6.9 4.8 4.6 3.2 7.8C19.5 16.4 12 21 12 21z"/></svg>
+            </button>
+          </div>
+          <div class="prod-info">
+            <div>
+              <h3>Camiseta Mala Fama</h3>
+              <span class="cat-label">Camisetas</span>
+            </div>
+            <div class="prod-price">$63.900</div>
+          </div>
+        </div>
+        <!-- Producto 2 — foto real -->
+        <div class="prod-card" data-cat="camisetas" data-price="48900" data-name="Camiseta Butterfly">
+          <div class="prod-img">
+            <img src="assets/prod-butterfly.png" alt="Camiseta blanca Butterfly">
+            <span class="tag"><img src="assets/logo-lobo-negro.png" alt="">02</span>
+            <button class="fav-btn" data-id="p2" aria-label="Guardar Camiseta Butterfly en favoritos" aria-pressed="false">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10.2-9.1C.2 8.7 1.4 5 5 4.1c2.1-.5 4.1.4 5.2 2.1L12 8.5l1.8-2.3c1.1-1.7 3.1-2.6 5.2-2.1 3.6.9 4.8 4.6 3.2 7.8C19.5 16.4 12 21 12 21z"/></svg>
+            </button>
+          </div>
+          <div class="prod-info">
+            <div>
+              <h3>Camiseta Butterfly</h3>
+              <span class="cat-label">Camisetas</span>
+            </div>
+            <div class="prod-price">$48.900</div>
+          </div>
+        </div>
+        <!-- Producto 3 — foto real -->
+        <div class="prod-card" data-cat="camisetas" data-price="47900" data-name="Porsche 911 GT3RS Negra">
+          <div class="prod-img">
+            <img src="assets/prod-porsche-negra.png" alt="Camiseta Porsche 911 GT3RS Negra">
+            <span class="tag"><img src="assets/logo-lobo-negro.png" alt="">03</span>
+            <button class="fav-btn" data-id="p3" aria-label="Guardar Porsche 911 GT3RS Negra en favoritos" aria-pressed="false">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10.2-9.1C.2 8.7 1.4 5 5 4.1c2.1-.5 4.1.4 5.2 2.1L12 8.5l1.8-2.3c1.1-1.7 3.1-2.6 5.2-2.1 3.6.9 4.8 4.6 3.2 7.8C19.5 16.4 12 21 12 21z"/></svg>
+            </button>
+          </div>
+          <div class="prod-info">
+            <div>
+              <h3>Porsche 911 GT3RS Negra</h3>
+              <span class="cat-label">Camisetas</span>
+            </div>
+            <div class="prod-price">$47.900</div>
+          </div>
+        </div>
+        <!-- Producto 4 — foto real -->
+        <div class="prod-card" data-cat="camisetas" data-price="47900" data-name="Porsche 911 GT3RS Blanca">
+          <div class="prod-img">
+            <img src="assets/prod-porsche-blanca.png" alt="Camiseta Porsche 911 GT3RS Blanca">
+            <span class="tag"><img src="assets/logo-lobo-negro.png" alt="">04</span>
+            <button class="fav-btn" data-id="p4" aria-label="Guardar Porsche 911 GT3RS Blanca en favoritos" aria-pressed="false">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10.2-9.1C.2 8.7 1.4 5 5 4.1c2.1-.5 4.1.4 5.2 2.1L12 8.5l1.8-2.3c1.1-1.7 3.1-2.6 5.2-2.1 3.6.9 4.8 4.6 3.2 7.8C19.5 16.4 12 21 12 21z"/></svg>
+            </button>
+          </div>
+          <div class="prod-info">
+            <div>
+              <h3>Porsche 911 GT3RS Blanca</h3>
+              <span class="cat-label">Camisetas</span>
+            </div>
+            <div class="prod-price">$47.900</div>
+          </div>
+        </div>
+        <!-- Producto 5 — foto real -->
+        <div class="prod-card" data-cat="hoodies" data-price="87900" data-name="Hoodie Blanco V1">
+          <div class="prod-img">
+            <img src="assets/prod-hoodie-blanco-v1.png" alt="Hoodie blanco V1">
+            <span class="tag"><img src="assets/logo-lobo-negro.png" alt="">05</span>
+            <button class="fav-btn" data-id="p5" aria-label="Guardar Hoodie Blanco V1 en favoritos" aria-pressed="false">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10.2-9.1C.2 8.7 1.4 5 5 4.1c2.1-.5 4.1.4 5.2 2.1L12 8.5l1.8-2.3c1.1-1.7 3.1-2.6 5.2-2.1 3.6.9 4.8 4.6 3.2 7.8C19.5 16.4 12 21 12 21z"/></svg>
+            </button>
+          </div>
+          <div class="prod-info">
+            <div>
+              <h3>Hoodie Blanco V1</h3>
+              <span class="cat-label">Hoodies</span>
+            </div>
+            <div class="prod-price">$87.900</div>
+          </div>
+        </div>
+        <!-- Producto 6 — foto real -->
+        <div class="prod-card" data-cat="hoodies" data-price="90900" data-name="Hoodie Negro V2">
+          <div class="prod-img">
+            <img src="assets/prod-hoodie-negro-v2.png" alt="Hoodie negro V2">
+            <span class="tag"><img src="assets/logo-lobo-negro.png" alt="">06</span>
+            <button class="fav-btn" data-id="p6" aria-label="Guardar Hoodie Negro V2 en favoritos" aria-pressed="false">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10.2-9.1C.2 8.7 1.4 5 5 4.1c2.1-.5 4.1.4 5.2 2.1L12 8.5l1.8-2.3c1.1-1.7 3.1-2.6 5.2-2.1 3.6.9 4.8 4.6 3.2 7.8C19.5 16.4 12 21 12 21z"/></svg>
+            </button>
+          </div>
+          <div class="prod-info">
+            <div>
+              <h3>Hoodie Negro V2</h3>
+              <span class="cat-label">Hoodies</span>
+            </div>
+            <div class="prod-price">$90.900</div>
+          </div>
+        </div>
+        <!-- Producto 7 — foto real -->
+        <div class="prod-card" data-cat="accesorios" data-price="40200" data-name="Cadena Lobo">
+          <div class="prod-img">
+            <img src="assets/prod-cadena-lobo.png" alt="Cadena Lobo Teyro Original">
+            <span class="tag"><img src="assets/logo-lobo-negro.png" alt="">07</span>
+            <button class="fav-btn" data-id="p7" aria-label="Guardar Cadena Lobo en favoritos" aria-pressed="false">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10.2-9.1C.2 8.7 1.4 5 5 4.1c2.1-.5 4.1.4 5.2 2.1L12 8.5l1.8-2.3c1.1-1.7 3.1-2.6 5.2-2.1 3.6.9 4.8 4.6 3.2 7.8C19.5 16.4 12 21 12 21z"/></svg>
+            </button>
+          </div>
+          <div class="prod-info">
+            <div>
+              <h3>Cadena Lobo</h3>
+              <span class="cat-label">Accesorios</span>
+            </div>
+            <div class="prod-price">$40.200</div>
+          </div>
+        </div>
+        <!-- Producto 8 — foto real -->
+        <div class="prod-card" data-cat="accesorios" data-price="25600" data-name="Pulsera Lobo">
+          <div class="prod-img">
+            <img src="assets/prod-pulsera-lobo.png" alt="Pulsera Lobo Teyro Original">
+            <span class="tag"><img src="assets/logo-lobo-negro.png" alt="">08</span>
+            <button class="fav-btn" data-id="p8" aria-label="Guardar Pulsera Lobo en favoritos" aria-pressed="false">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10.2-9.1C.2 8.7 1.4 5 5 4.1c2.1-.5 4.1.4 5.2 2.1L12 8.5l1.8-2.3c1.1-1.7 3.1-2.6 5.2-2.1 3.6.9 4.8 4.6 3.2 7.8C19.5 16.4 12 21 12 21z"/></svg>
+            </button>
+          </div>
+          <div class="prod-info">
+            <div>
+              <h3>Pulsera Lobo</h3>
+              <span class="cat-label">Accesorios</span>
+            </div>
+            <div class="prod-price">$25.600</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       GALERÍA / LOOKBOOK
+       ============================================ -->
+  <section id="galeria">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Lookbook</div>
+          <h2>Galería</h2>
+        </div>
+        <p>Desliza para ver el drop en la calle. Reemplaza cada recuadro por tu foto real.</p>
+      </div>
+    </div>
+    <div class="galeria-strip reveal">
+      <div class="galeria-track">
+        <div class="galeria-item"><span>LOOK 01</span></div>
+        <div class="galeria-item"><span>LOOK 02</span></div>
+        <div class="galeria-item"><span>LOOK 03</span></div>
+        <div class="galeria-item"><span>LOOK 04</span></div>
+        <div class="galeria-item"><span>LOOK 05</span></div>
+        <div class="galeria-item"><span>LOOK 06</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       NOSOTROS
+       ============================================ -->
+  <section id="nosotros">
+    <div class="wrap nosotros reveal">
+      <div class="nosotros-img">
+        <!-- Reemplaza por <img src="equipo.jpg" alt="Equipo Teyro Original"> -->
+        <span>FOTO DE MARCA</span>
+      </div>
+      <div class="nosotros-text">
+        <div class="eyebrow">Nuestra historia</div>
+        <h2>Nacimos en la calle, no en una oficina.</h2>
+        <p>Teyro Original empezó como un grupo de amigos que no encontraba ropa que representara de verdad lo que vivían todos los días. Así que empezamos a hacerla nosotros mismos.</p>
+        <p>Cada prenda está pensada para durar, moverse contigo y llevar la identidad de quien la usa. No seguimos tendencias que no tienen sentido para nuestra gente: las creamos.</p>
+        <div class="nosotros-stats">
+          <div>
+            <span class="stat-num">04</span>
+            <span class="stat-label">Drops lanzados</span>
+          </div>
+          <div>
+            <span class="stat-num">+2K</span>
+            <span class="stat-label">Miembros de Teyro</span>
+          </div>
+          <div>
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Diseño propio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       TESTIMONIOS
+       ============================================ -->
+  <section class="testimonios" id="testimonios">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Lo que dicen</div>
+          <h2>Testimonios</h2>
+        </div>
+        <p>Reseñas de ejemplo — reemplázalas por las de tus clientes reales.</p>
+      </div>
+      <div class="testi-grid reveal">
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p>"La calidad de la tela sorprende. Le hice el 2x1 en camisetas y las dos se ven premium."</p>
+          <div class="testi-author"><span class="avatar">JD</span> Juan D. — Bogotá</div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p>"El hoodie llegó en dos días y el corte es exactamente como se ve en la foto."</p>
+          <div class="testi-author"><span class="avatar">MC</span> Mariana C. — Medellín</div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★☆</div>
+          <p>"Buena atención por Instagram, me ayudaron a elegir talla antes de comprar."</p>
+          <div class="testi-author"><span class="avatar">SL</span> Santiago L. — Cali</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FAQ
+       ============================================ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Antes de comprar</div>
+          <h2>Preguntas frecuentes</h2>
+        </div>
+        <p>¿No encuentras tu respuesta? Escríbenos en la sección de contacto.</p>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Cuánto tarda el envío?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Entre 2 y 5 días hábiles según tu ciudad. En Bogotá, Medellín y Cali suele llegar en 1-2 días.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Puedo pagar contra entrega?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sí, disponible en la mayoría de ciudades de Colombia. También aceptamos tarjeta y transferencia.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Cómo sé mi talla?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Cada producto incluye una guía de tallas en la descripción. Si tienes dudas, escríbenos antes de comprar.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Aceptan cambios o devoluciones?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sí, tienes 5 días desde que recibes el pedido para solicitar cambio de talla, siempre que la prenda esté sin uso.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       NEWSLETTER
+       ============================================ -->
+  <section class="newsletter">
+    <div class="wrap newsletter-inner reveal">
+      <div>
+        <div class="eyebrow">Únete a la tribu</div>
+        <h2>Entérate primero de cada drop.</h2>
+        <p>Sin spam. Solo aviso cuando hay producto nuevo o descuento real.</p>
+      </div>
+      <form id="newsletterForm" class="newsletter-form">
+        <input type="email" id="newsletterEmail" placeholder="tu@correo.com" required aria-label="Correo electrónico">
+        <button type="submit" class="btn filled">Suscribirme</button>
+      </form>
+      <p class="form-msg" id="newsletterMsg" role="status">¡Listo! Ya estás en la lista. Conecta este formulario a un servicio como Mailchimp o Brevo para producción.</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CONTACTO
+       ============================================ -->
+  <section class="contacto" id="contacto">
+    <div class="wrap contacto-grid reveal">
+      <div class="contacto-info">
+        <div class="eyebrow">Hablemos</div>
+        <h2>Contacto</h2>
+        <p>¿Dudas sobre un producto, un pedido o querés unirte a Teyro? Escribinos y te respondemos.</p>
+        <div class="info-row"><span>Correo</span><span>prendasteyrooriginal@gmail.com</span></div>
+        <div class="info-row"><span>Instagram</span><span>@prendasteyrooriginal</span></div>
+        <div class="info-row"><span>Dirección</span><span>Cra 63 #71-24</span></div>
+      </div>
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required>
+          <span class="field-error" id="err-nombre"></span>
+        </div>
+        <div class="field">
+          <label for="email">Correo</label>
+          <input type="email" id="email" name="email" required>
+          <span class="field-error" id="err-email"></span>
+        </div>
+        <div class="field">
+          <label for="asunto">Asunto</label>
+          <input type="text" id="asunto" name="asunto">
+        </div>
+        <div class="field">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" required></textarea>
+          <span class="field-error" id="err-mensaje"></span>
+        </div>
+        <button type="submit" class="btn filled">Enviar mensaje</button>
+        <p class="form-msg" id="formMsg" role="status">Mensaje enviado. Este formulario aún no tiene backend: conecta un servicio como Formspree o tu propio servidor para recibir correos reales.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <a href="#inicio" class="logo">
+          <img src="assets/logo-lobo.png" alt="Teyro Original">
+          TEYRO <span>ORIGINAL</span>
+        </a>
+        <ul class="footer-links">
+          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#ofertas">Ofertas</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#faq">Preguntas</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="TikTok">TT</a>
+          <a href="#" aria-label="WhatsApp">WA</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Teyro Original. Haz Corporation.</span>
+        <span>Hecho para la calle, no para la oficina.</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">↑</button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
