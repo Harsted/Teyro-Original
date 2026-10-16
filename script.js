@@ -44,7 +44,7 @@ const PRODUCTOS = [
 // ============================================================
 const grid = document.getElementById('grid');
 const cop = n => '$' + n.toLocaleString('es-CO');
-const src = f => `images/${f}.jpg`;
+const src = f => `assets/${f}.jpg`;
 
 PRODUCTOS.forEach(p => {
   const card = document.createElement('article');
