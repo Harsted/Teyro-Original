@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teyro Original — Streetwear</title>
+<meta name="description" content="Teyro Original: camisetas, hoodies y accesorios de streetwear hechos en Colombia.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#inicio"><img src="assets/logo-lobo.png" alt="" width="24" height="28">Teyro Original</a>
+  <nav aria-label="Principal">
+    <a href="#catalogo">Catálogo</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <h1>Diseñado para los que no siguen tendencias, las crean.</h1>
+    <a class="btn" href="#catalogo">Ver catálogo</a>
+    <img class="hero-img" src="assets/hoodie-silueta-negro.png" width="1200" height="800" alt="Hoodie negro con silueta, vista delantera y trasera">
+  </section>
+
+  <section id="catalogo" class="catalogo">
+    <div class="head">
+      <h2>Catálogo</h2>
+      <div class="filtros" role="group" aria-label="Filtrar por categoría">
+        <button class="on" data-f="todos">Todo</button>
+        <button data-f="camisetas">Camisetas</button>
+        <button data-f="hoodies">Hoodies</button>
+        <button data-f="accesorios">Accesorios</button>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="nosotros" class="nosotros">
+    <h2>Nosotros</h2>
+    <p>Teyro Original es una marca de streetwear con diseño propio. Hacemos prendas pensadas para durar y para llevar la identidad de quien las usa.</p>
+  </section>
+
+  <section id="contacto" class="contacto">
+    <h2>Contacto</h2>
+    <dl>
+      <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/prendasteyrooriginal_?psln=MXY4aTkxb2IwOHI4eg==" rel="noopener">@prendasteyrooriginal</a></dd></div>
+      <div><dt>Correo</dt><dd><a href="mailto:prendasteyrooriginal@gmail.com">prendasteyrooriginal@gmail.com</a></dd></div>
+      <div><dt>Dirección</dt><dd>Cra 63 #71-24</dd></div>
+    </dl>
+  </section>
+</main>
+
+<footer>© 2026 Teyro Original</footer>
+<script src="script.js" defer></script>
+</body>
+</html>
